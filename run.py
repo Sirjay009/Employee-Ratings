@@ -23,11 +23,23 @@ def get_scores_data():
     print("Example: 0,3,5\n")
 
     data_str = input("Enter your data here: ")
-    print(f"The data provided is {data_str}")
+    scores_data = data_str.split(",")
+    validate_data(scores_data)
 
+def validate_data(values):
+    """
+    Use 'try/except statement to check if data is valid.
+    Raise ValueError if strings cannot be converted into
+    integers, or if there are not exactly 3 values.
+    """
+    try:
+        if len(values) != 3:
+            raise ValueError(
+                f"Exactly 3 values required, you provided {len(values)}"
+            )
 
-
-
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
 
 
 get_scores_data()
