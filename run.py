@@ -19,12 +19,13 @@ def get_scores_data():
     """
     print("Please enter your score ratings")
     print("Data should be three numbers seperated by commas")
-    print("Scores are rated from zero (lowest score) to five (highest score)")
+    print("Accepted scores range is 0 for lowest, and 5 for highest)")
     print("Example: 0,3,5\n")
 
     data_str = input("Enter your data here: ")
     scores_data = data_str.split(",")
     validate_data(scores_data)
+
 
 def validate_data(values):
     """
