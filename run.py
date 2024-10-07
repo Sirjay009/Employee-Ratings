@@ -71,6 +71,14 @@ def update_employee_survey_data(data):
     print("Score ratings updated successfully.\n")
 
 
-data = get_scores_data()
-scores_data = [int(num) for num in data]
-update_employee_survey_data(data)
+def main():
+    """
+    Run all program functions
+    """
+    data = get_scores_data()
+    scores_data = [int(num) for num in data]
+    update_employee_survey_data(data)
+
+
+print("Welcome to employee_ratings Data Automation")
+main()
