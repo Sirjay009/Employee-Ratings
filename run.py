@@ -23,7 +23,7 @@ def get_scores_data():
     while True:
         print("Please enter your score ratings")
         print("Data should be three numbers seperated by commas")
-        print("Accepted scores range is 0 for lowest, and 5 for highest)")
+        print("Data value should be between the range 0 and 5")
         print("Example: 0,3,5\n")
 
         data_str = input("Enter your data here: ")
@@ -38,15 +38,20 @@ def get_scores_data():
 
 def validate_data(values):
     """
-    Use 'try/except statement to check if data is valid.
+    Use 'try/except and for loop statements to check if data is valid.
     Raise ValueError if strings cannot be converted into
-    integers, or if there are not exactly 3 values.
+    integers, if there are not exactly 3 values or if out of 0 and 5 range.
     """
     try:
         if len(values) != 3:
             raise ValueError(
                 f"Exactly 3 values required, you provided {len(values)}"
             )
+
+        for value in values:
+            int_value = int(value)
+            if not (0 <= int_value <= 5):
+                raise ValueError(f"Value {int_value} is out of range (0-5)")
 
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
