@@ -60,4 +60,17 @@ def validate_data(values):
     return True
 
 
+def update_employee_survey_data(data):
+    """
+    Update employee_survey_data worksheet, add new row with 
+    the list data provided.
+    """
+    print("Updating employee ratings worksheet...\n")
+    scores_worksheet = SHEET.worksheet("employee_survey_data")
+    scores_worksheet.append_row(data)
+    print("Score ratings updated successfully.\n")
+
+
 data = get_scores_data()
+scores_data = [int(num) for num in data]
+update_employee_survey_data(data)
